@@ -22,6 +22,14 @@ describe("tests suite for validation function", () => {
         const result = checkName("test");
         expect(result).toBeFalsy();
     });
+    test("should return false as name does not contain special character", () => {
+        const result = checkName("testtest");
+        expect(result).toBeFalsy();
+    });
+    test("should return false as name does not contain number", () => {
+        const result = checkName("testtest!");
+        expect(result).toBeFalsy();
+    });
     test("should return true as name is longer than 8 characters", () => {
         const result = checkName("testtest2!");
         expect(result).toBeTruthy();
@@ -30,21 +38,7 @@ describe("tests suite for validation function", () => {
         const result = checkName("testte2!");
         expect(result).toBeTruthy();
     });
-
-    test("should return false as name does not contain special character", () => {
-        const result = checkName("testtest");
-        expect(result).toBeFalsy();
-    });
-    test("should return true as name does contain special character", () => {
-        const result = checkName("testtest2!");
-        expect(result).toBeTruthy();
-    });
-
-    test("should return false as name does not contain number", () => {
-        const result = checkName("testtest!");
-        expect(result).toBeFalsy();
-    });
-    test("should return true as name does contain special character", () => {
+    test("should return true as name does contain special character and number", () => {
         const result = checkName("testtest2!");
         expect(result).toBeTruthy();
     });

@@ -2,17 +2,8 @@
 
 const isEmpty = (label) => !label || label.length === 0;
 
-const checkName = (name) => {
-    if (name.length < 8) return false;
-
-    let regexSpecial = /[^a-zA-Z0-9]/;
-    if (!regexSpecial.test(name)) return false;
-
-    let regexNumber = /[0-9]/;
-    if (!regexNumber.test(name)) return false;
-
-    return true;
-};
+const checkName = (name) =>
+    name.length >= 8 && /[^a-zA-Z0-9]/.test(name) && /[0-9]/.test(name);
 
 module.exports = {
     isEmpty,

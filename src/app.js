@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 try {
-    const { isEmpty } = require("./services/validations");
+    const { checkName } = require("./services/validations");
     const gamerTagInput = document.getElementById("gamerTagInput");
     const checkButton = document.getElementById("gamerTagCheckButton");
     const feedbackMessage = document.getElementById("gamerTagFeedback");
@@ -13,9 +13,8 @@ try {
     });
 
     checkButton.addEventListener("click", () => {
-        // TODO: Add the logic to display the correct feedback message (error and validation)
-        feedbackMessageText = isEmpty(gamerTagValue)
-            ? "Gamer tag cannot be empty"
+        feedbackMessageText = checkName(gamerTagValue)
+            ? "Gamer tag is not valid, gamer tag must be at least 8 characters, contain a special character and a number"
             : "Gamer tag is valid";
         feedbackMessage.textContent = feedbackMessageText;
     });

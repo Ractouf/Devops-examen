@@ -2,4 +2,10 @@
 
 const isEmpty = (label) => !label || label.length === 0;
 
-exports.isEmpty = isEmpty;
+const checkName = (name) =>
+    name.length >= 8 && /[^a-zA-Z0-9]/.test(name) && /[0-9]/.test(name);
+
+module.exports = {
+    isEmpty,
+    checkName,
+};

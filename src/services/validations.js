@@ -2,4 +2,11 @@
 
 const isEmpty = (label) => !label || label.length === 0;
 
-exports.isEmpty = isEmpty;
+const checkName = (name) => {
+    return name.length >= 8;
+};
+
+module.exports = {
+    isEmpty,
+    checkName,
+};
